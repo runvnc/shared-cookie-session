@@ -1,0 +1,26 @@
+{
+  "name": "shared-cookie-session",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/runvnc/passport-file-cookie.git"
+  },
+  "dependencies": {
+    "bcryptjs": "",
+    "cookie-parser": "",
+    "body-parser": "",
+    "cookie-session": "",
+    "randomstring":""
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/runvnc/passport-file-cookie/issues"
+  },
+  "homepage": "https://github.com/runvnc/passport-file-cookie"
+}
