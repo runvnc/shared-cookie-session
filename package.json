@@ -14,6 +14,7 @@
     "bcryptjs": "",
     "cookie-parser": "",
     "body-parser": "",
+    "fs-extra": "",
     "cookie-session": "",
     "randomstring":""
   },
