@@ -35,6 +35,7 @@ module.exports.setupAppServer = function(app) {
   app.use(function(req,res,next) {
     module.exports.session = req.session;
     process.session = req.session;
+    next();
   });
 };
 
