@@ -22,6 +22,8 @@ readConfig = function() {
   }
 }
 
+module.exports.session = null;
+
 module.exports.setupAppServer = function(app) {
   var config = readConfig();
   app.use(cookieSession({
@@ -29,5 +31,9 @@ module.exports.setupAppServer = function(app) {
       maxage: 1000 * 60 * 60 * 24 * 7,
       signed: true
     }));
+
+  app.use(function(req,res,next) {
+    module.exports.session = req.session;
+  });
 };
 
