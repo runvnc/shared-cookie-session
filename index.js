@@ -24,18 +24,24 @@ readConfig = function() {
 
 module.exports.session = null;
 
+var config = readConfig();
+
+exports.cookieSession = cookieSession({
+  secret: config.cookieSecret,
+  maxage: 1000 * 60 * 60 * 24 * 7,
+  signed: true
+});
+
+exports.processSession = function(req,res,next) {
+  module.exports.session = req.session;
+  process.session = req.session;
+  next();
+}
+
 module.exports.setupAppServer = function(app) {
   var config = readConfig();
-  app.use(cookieSession({
-      secret: config.cookieSecret,
-      maxage: 1000 * 60 * 60 * 24 * 7,
-      signed: true
-    }));
+  app.use(exports.cookieSession);
+  app.use(exports.processSession);
+}
 
-  app.use(function(req,res,next) {
-    module.exports.session = req.session;
-    process.session = req.session;
-    next();
-  });
-};
 
